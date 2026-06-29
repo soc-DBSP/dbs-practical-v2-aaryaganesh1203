@@ -23,3 +23,24 @@ module.exports.SQL_ERROR_CODE = {
     UNIQUE_VIOLATION: '23505',
     RAISE_EXCEPTION: 'P0001',
 };
+
+const SQL_ERROR_CODE = {
+    UNIQUE_VIOLATION: '23505',
+    RAISE_EXCEPTION: 'P0001'
+};
+
+class UNIQUE_VIOLATION_ERROR extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'UNIQUE_VIOLATION_ERROR';
+    }
+}
+
+class RAISE_EXCEPTION_ERROR extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'RAISE_EXCEPTION_ERROR';
+    }
+}
+
+module.exports = { SQL_ERROR_CODE, UNIQUE_VIOLATION_ERROR, RAISE_EXCEPTION_ERROR };
